@@ -4,10 +4,10 @@
 	"description": "CSOB plugin for Sylius",
 	"license": "MIT",
 	"require": {
-		"php": "^7.3",
-		"slevomat/csob-gateway": "^4.1",
-		"sylius/sylius": "^1.7.0",
-		"payum/core": "^1.5",
+		"php": "^7.4 || ^8.0",
+		"slevomat/csob-gateway": "^5.3",
+		"sylius/sylius": "^1.10.0",
+		"payum/core": "^1.7",
 		"ext-openssl": "*"
 	},
 	"require-dev": {
