@@ -17,7 +17,7 @@ use SlevomatCsobGateway\Currency;
 use SlevomatCsobGateway\Language;
 use SlevomatCsobGateway\RequestFactory;
 use Sylius\Component\Core\Context\ShopperContextInterface;
-use Symfony\Component\Translation\TranslatorInterface;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class CsobApi implements CsobApiInterface
 {
@@ -42,8 +42,8 @@ class CsobApi implements CsobApiInterface
 			: __DIR__ . '/../Resources/keys/serverKeys/prod/mips_platebnibrana.csob.cz.pub';
 
 		$apiEndpoint = $sandbox
-			? 'https://iapi.iplatebnibrana.csob.cz/api/v1.7'
-			: 'https://api.platebnibrana.csob.cz/api/v1.7';
+			? 'https://iapi.iplatebnibrana.csob.cz/api/v1.8'
+			: 'https://api.platebnibrana.csob.cz/api/v1.8';
 
 		return new ApiClient(
 			new CurlDriver(),
@@ -81,9 +81,8 @@ class CsobApi implements CsobApiInterface
 			HttpMethod::get(HttpMethod::POST),
 			$cart,
 			$order['description'],
-			null,
 			$clientId,
-			$language
+			$language,
 		)->send($apiClient);
 
 		$payId = $paymentResponse->getPayId();

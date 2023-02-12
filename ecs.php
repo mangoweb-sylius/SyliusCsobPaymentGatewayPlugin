@@ -12,4 +12,5 @@ return static function (ECSConfig $ecsConfig): void {
     $ecsConfig->parameters()->set(Option::SKIP, [
         VisibilityRequiredFixer::class => ['*Spec.php'],
     ]);
+	$ecsConfig->indentation('tab');
 };
