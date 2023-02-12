@@ -5,8 +5,7 @@ declare(strict_types=1);
 namespace MangoSylius\CsobPaymentGatewayPlugin\Service;
 
 use function base64_encode;
-use const OPENSSL_ALGO_SHA1;
-use function openssl_free_key;
+use const OPENSSL_ALGO_SHA256;
 use function openssl_pkey_get_private;
 use SlevomatCsobGateway\Crypto\PrivateKeyFileException;
 use SlevomatCsobGateway\Crypto\SignatureDataFormatter;
@@ -14,7 +13,7 @@ use SlevomatCsobGateway\Crypto\SigningFailedException;
 
 class CryptoService extends \SlevomatCsobGateway\Crypto\CryptoService
 {
-	public const HASH_METHOD = OPENSSL_ALGO_SHA1;
+	public const HASH_METHOD = OPENSSL_ALGO_SHA256;
 
 	/** @var string */
 	private $privateKeyFile;
