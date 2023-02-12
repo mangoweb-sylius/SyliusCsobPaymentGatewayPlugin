@@ -4,9 +4,9 @@
 	"description": "CSOB plugin for Sylius",
 	"license": "MIT",
 	"require": {
-		"php": "^7.4 || ^8.0",
+		"php": "^8.0",
 		"slevomat/csob-gateway": "^5.3",
-		"sylius/sylius": "^1.10.0",
+		"sylius/sylius": "1.11.*",
 		"payum/core": "^1.7",
 		"ext-openssl": "*"
 	},
@@ -33,15 +33,22 @@
 		"phpunit/phpunit": "^9.5",
 		"sensiolabs/security-checker": "^6.0",
 		"sylius-labs/coding-standard": "^4.0",
-		"symfony/browser-kit": "^4.4 || ^5.2",
-		"symfony/debug-bundle": "^4.4 || ^5.2",
-		"symfony/dotenv": "^4.4 || ^5.2",
-		"symfony/intl": "^4.4 || ^5.2",
-		"symfony/web-profiler-bundle": "^4.4 || ^5.2",
+		"symfony/browser-kit": "^5.4",
+		"symfony/debug-bundle": "^5.4",
+		"symfony/dotenv": "^5.4",
+		"symfony/intl": "^5.4",
+		"symfony/web-profiler-bundle": "^5.4",
 		"vimeo/psalm": "4.7.1",
 		"polishsymfonycommunity/symfony-mocker-container": "^1.0"
 	},
-	"prefer-stable": true,
+	"config": {
+		"sort-packages": true,
+		"allow-plugins": {
+			"dealerdirect/phpcodesniffer-composer-installer": false,
+			"phpstan/extension-installer": true,
+			"symfony/flex": true
+		}
+	},
 	"autoload": {
 		"psr-4": {
 			"MangoSylius\\CsobPaymentGatewayPlugin\\": "src/",
@@ -49,14 +56,8 @@
 		}
 	},
 	"autoload-dev": {
-		"psr-4": {
-			"App\\": "tests/Application/src/"
-		}
-	},
-	"config": {
-		"allow-plugins": {
-			"dealerdirect/phpcodesniffer-composer-installer": false,
-			"phpstan/extension-installer": false
-		}
+		"classmap": [
+			"tests/Application/Kernel.php"
+		]
 	}
 }
