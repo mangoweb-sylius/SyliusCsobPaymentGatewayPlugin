@@ -1,16 +1,13 @@
-
 /vendor/
 /node_modules/
 /composer.lock
 
 /etc/build/*
-!/etc/build/.gitkeep
+!/etc/build/.gitignore
 
 /tests/Application/yarn.lock
 
-docker-compose.override.yaml
-docker-compose.override.dist.yaml
-docker-compose.yaml
-/bin-docker/
-/deploy/
-/docker/
+/.phpunit.result.cache
+/behat.yml
+/phpspec.yml
+/phpunit.xml
