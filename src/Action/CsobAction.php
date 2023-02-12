@@ -106,13 +106,13 @@ class CsobAction implements ApiAwareInterface, ActionInterface
 	}
 
 	/**
-	 * @param mixed $model
-	 *
 	 * @return array<mixed>
 	 */
-	private function resolveProducts($model): array
+	private function resolveProducts(ArrayObject $model): array
 	{
-		if (!array_key_exists('items', $model) || count($model['items']) === 0) {
+		$items = $model->get('items');
+
+		if (null !== $items || (is_array($items) && count($model['items']) === 0)) {
 			return [
 				[
 					'name' => $model['description'],
