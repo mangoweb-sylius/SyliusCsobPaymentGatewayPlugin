@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Tests\MangoSylius\CsobPaymentGatewayPlugin\Behat\Context\Setup;
 
 use Behat\Behat\Context\Context;
-use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\ORM\EntityManagerInterface;
 use Sylius\Behat\Service\SharedStorageInterface;
 use Sylius\Bundle\CoreBundle\Fixture\Factory\ExampleFactoryInterface;
 use Sylius\Component\Core\Model\PaymentMethodInterface;
@@ -22,7 +22,7 @@ final class PaymentContext implements Context
 	/** @var ExampleFactoryInterface */
 	private $paymentMethodExampleFactory;
 
-	/** @var ObjectManager */
+	/** @var EntityManagerInterface */
 	private $paymentMethodManager;
 
 	/** @var array */
@@ -32,7 +32,7 @@ final class PaymentContext implements Context
 		SharedStorageInterface $sharedStorage,
 		PaymentMethodRepositoryInterface $paymentMethodRepository,
 		ExampleFactoryInterface $paymentMethodExampleFactory,
-		ObjectManager $paymentMethodManager,
+		EntityManagerInterface $paymentMethodManager,
 		array $gatewayFactories
 	) {
 		$this->sharedStorage = $sharedStorage;
